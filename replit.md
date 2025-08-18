@@ -37,6 +37,7 @@ Preferred communication style: Simple, everyday language.
 - **Character Form**: Input forms for character details (name, personality, scenario, etc.)
 - **Character Preview**: Real-time preview with validation status and token counting
 - **File Upload**: Support for importing existing character files (JSON, PNG)
+- **Mobile-Friendly Import**: Manual import dialog for copy/paste on mobile devices
 - **Export Panel**: Multi-format export capabilities (JSON/PNG)
 
 ### Data Validation
@@ -58,10 +59,11 @@ Preferred communication style: Simple, everyday language.
 4. Data is stored in local React state until export
 
 ### File Import
-1. User uploads JSON or PNG character file
-2. File is parsed and mapped to internal character schema
-3. Imported data populates the character form
-4. Validation runs on imported data
+1. User uploads JSON or PNG character file (desktop/laptop)
+2. OR uses manual import dialog for mobile-friendly copy/paste
+3. File is parsed and mapped to internal character schema
+4. Imported data populates the character form
+5. Validation runs on imported data
 
 ### Export Process
 1. User selects target format and export type (JSON/PNG)

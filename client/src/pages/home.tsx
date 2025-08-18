@@ -101,6 +101,20 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Mobile-Friendly Guide */}
+        <div className="mt-12 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-100 md:hidden">
+          <div className="text-center mb-4">
+            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span className="text-white text-xs font-bold">📱</span>
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900">Mobile Users</h3>
+            <p className="text-sm text-slate-600 mt-2">
+              Can't access character files on your phone? No problem! 
+              Use the <strong>"Import from Meta AI Studios"</strong> button above to manually copy and paste your character data.
+            </p>
+          </div>
+        </div>
+
         {/* Help Section */}
         <div className="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-blue-100">
           <div className="max-w-4xl mx-auto">
@@ -115,7 +129,7 @@ export default function Home() {
                   <span className="text-white font-semibold">1</span>
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Import or Create</h3>
-                <p className="text-sm text-slate-600">Upload existing character files or manually enter character details using the form</p>
+                <p className="text-sm text-slate-600">Upload existing character files, use manual import for mobile, or enter character details using the form</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
