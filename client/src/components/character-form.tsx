@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Character, ValidationResult } from "@shared/schema";
-import { Edit, LayoutTemplate, CheckCircle, Upload, User } from "lucide-react";
+import { Edit, LayoutTemplate, CheckCircle, Upload, User, X, RotateCcw } from "lucide-react";
 
 interface CharacterFormProps {
   character: Partial<Character>;
@@ -23,6 +23,15 @@ export default function CharacterForm({ character, onChange, onLoadTemplate, val
         onChange('avatar', result);
       };
       reader.readAsDataURL(file);
+    }
+  };
+
+  const handleAvatarRemove = () => {
+    onChange('avatar', '');
+    // Reset the file input value
+    const fileInput = document.getElementById('avatar-upload') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
     }
   };
 
@@ -125,28 +134,55 @@ export default function CharacterForm({ character, onChange, onLoadTemplate, val
               Character Avatar
             </Label>
             <div className="flex items-center space-x-4 mt-2">
-              <div className="w-16 h-16 bg-slate-100 rounded-lg border border-slate-300 flex items-center justify-center overflow-hidden">
+              <div className="relative w-16 h-16 bg-slate-100 rounded-lg border border-slate-300 flex items-center justify-center overflow-hidden">
                 {character.avatar ? (
-                  <img src={character.avatar} alt="Avatar" className="w-full h-full object-cover" />
+                  <>
+                    <img src={character.avatar} alt="Avatar" className="w-full h-full object-cover" />
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="sm"
+                      className="absolute -top-2 -right-2 w-6 h-6 rounded-full p-0"
+                      onClick={handleAvatarRemove}
+                      data-testid="button-remove-avatar"
+                    >
+                      <X className="w-3 h-3" />
+                    </Button>
+                  </>
                 ) : (
                   <User className="w-6 h-6 text-slate-400" />
                 )}
               </div>
               <div className="flex-1">
-                <label htmlFor="avatar-upload">
-                  <Button type="button" variant="secondary" size="sm" asChild>
-                    <span className="cursor-pointer">
-                      <Upload className="w-4 h-4 mr-2" />
-                      Upload Image
-                    </span>
-                  </Button>
-                </label>
+                <div className="flex space-x-2">
+                  <label htmlFor="avatar-upload">
+                    <Button type="button" variant="secondary" size="sm" asChild>
+                      <span className="cursor-pointer">
+                        <Upload className="w-4 h-4 mr-2" />
+                        {character.avatar ? 'Change Image' : 'Upload Image'}
+                      </span>
+                    </Button>
+                  </label>
+                  {character.avatar && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={handleAvatarRemove}
+                      data-testid="button-reset-avatar"
+                    >
+                      <RotateCcw className="w-4 h-4 mr-2" />
+                      Reset
+                    </Button>
+                  )}
+                </div>
                 <input
                   id="avatar-upload"
                   type="file"
                   accept="image/*"
                   onChange={handleAvatarUpload}
                   className="hidden"
+                  data-testid="input-avatar-upload"
                 />
                 <p className="text-xs text-slate-500 mt-1">PNG, JPG up to 2MB</p>
               </div>
