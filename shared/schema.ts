@@ -15,7 +15,7 @@ export const characterSchema = z.object({
 export type Character = z.infer<typeof characterSchema>;
 
 // Export format types
-export const exportFormatSchema = z.enum(["tavernai", "pygmalion", "characterai", "textgeneration"]);
+export const exportFormatSchema = z.enum(["tavernai", "pygmalion", "characterai", "textgeneration", "meta"]);
 export type ExportFormat = z.infer<typeof exportFormatSchema>;
 
 // Conversion request schema
