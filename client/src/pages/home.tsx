@@ -4,6 +4,7 @@ import CharacterForm from "@/components/character-form";
 import CharacterPreview from "@/components/character-preview";
 import ExportPanel from "@/components/export-panel";
 import FileUpload from "@/components/file-upload";
+import { PlatformComparison } from "@/components/platform-comparison";
 import { Character } from "@shared/schema";
 import { validateCharacter } from "@/lib/character-validation";
 import { Bot, Github, HelpCircle } from "lucide-react";
@@ -101,17 +102,33 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Platform Comparison - Full Width */}
+        <div className="mt-12">
+          <PlatformComparison />
+        </div>
+
         {/* Mobile-Friendly Guide */}
-        <div className="mt-12 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-100 md:hidden">
+        <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-100">
           <div className="text-center mb-4">
             <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
               <span className="text-white text-xs font-bold">📱</span>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900">Mobile Users</h3>
+            <h3 className="text-lg font-semibold text-slate-900">Transfer Characters Between Your Meta Accounts</h3>
             <p className="text-sm text-slate-600 mt-2">
-              Can't access character files on your phone? No problem! 
-              Use the <strong>"Import from Meta AI Studios"</strong> button above to manually copy and paste your character data.
+              Have different Meta accounts on Instagram, Messenger, and WhatsApp? This app helps you transfer 
+              characters between them! Mobile users can't access character source code, so use the <strong>"Meta AI"</strong> export 
+              tab to get copyable fields that you can paste into Meta AI Studio on your other account.
             </p>
+            <div className="mt-4 bg-white rounded-lg p-4 text-left max-w-2xl mx-auto">
+              <p className="text-xs font-semibold text-slate-700 mb-2">Quick Transfer Steps:</p>
+              <ol className="text-xs text-slate-600 space-y-1 list-decimal list-inside">
+                <li>Fill out your character details (or use manual import)</li>
+                <li>Go to the "Meta AI" export tab</li>
+                <li>Copy each field using the copy buttons</li>
+                <li>Open Meta AI Studio on your other account</li>
+                <li>Create a new character and paste the copied data</li>
+              </ol>
+            </div>
           </div>
         </div>
 
@@ -150,7 +167,11 @@ export default function Home() {
             <Card className="mt-8">
               <CardContent className="p-6">
                 <h4 className="font-semibold text-slate-900 mb-3">Supported Formats</h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="font-medium">Meta AI Studio</span>
+                  </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span>TavernAI/SillyTavern</span>
