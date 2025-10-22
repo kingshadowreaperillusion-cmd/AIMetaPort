@@ -50,6 +50,15 @@ export interface TextGenerationCharacter {
   example_dialogues: string;
 }
 
+export interface MetaAIStudioCharacter {
+  name: string;
+  tagline: string;
+  personality: string;
+  description: string;
+  greeting: string;
+  example_conversations: string;
+}
+
 export function convertToFormat(character: Character, format: ExportFormat): any {
   switch (format) {
     case 'tavernai':
@@ -102,6 +111,16 @@ export function convertToFormat(character: Character, format: ExportFormat): any
         first_message: character.firstMessage || 'Hello!',
         example_dialogues: character.examples || '',
       } as TextGenerationCharacter;
+
+    case 'meta':
+      return {
+        name: character.name,
+        tagline: character.description || 'An AI assistant',
+        personality: character.personality,
+        description: character.scenario || '',
+        greeting: character.firstMessage || 'Hello! How can I help you today?',
+        example_conversations: character.examples || '',
+      } as MetaAIStudioCharacter;
 
     default:
       throw new Error(`Unsupported format: ${format}`);
