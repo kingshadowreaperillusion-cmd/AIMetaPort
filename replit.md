@@ -2,7 +2,9 @@
 
 ## Overview
 
-This is a full-stack web application for converting AI character definitions between different formats (TavernAI, Pygmalion, Character.AI, TextGeneration). The application provides a user-friendly interface for creating, editing, validating, and exporting AI character cards in multiple formats, including both JSON and PNG character card formats.
+This is a full-stack web application for converting AI character definitions between different formats (Meta AI Studio, TavernAI, Pygmalion, Character.AI, TextGeneration). The application provides a user-friendly interface for creating, editing, validating, and exporting AI character cards in multiple formats, including both JSON and PNG character card formats.
+
+**Primary Use Case**: Helps mobile users (iOS/Android) transfer Meta AI characters between different Meta accounts (Instagram, Messenger, WhatsApp) by providing copyable character data that can be manually entered into Meta AI Studio on other accounts/platforms.
 
 ## User Preferences
 
@@ -46,9 +48,19 @@ Preferred communication style: Simple, everyday language.
 - **Field Status Tracking**: Visual indicators for required vs optional fields
 
 ### Format Conversion
-- **Multiple Formats**: Support for TavernAI, Pygmalion, Character.AI, and TextGeneration formats
+- **Multiple Formats**: Support for Meta AI Studio, TavernAI, Pygmalion, Character.AI, and TextGeneration formats
 - **Format-specific Mapping**: Converts between different field naming conventions
 - **PNG Generation**: Creates character card images with embedded JSON metadata
+- **Copy/Paste Export**: Meta AI Studio format provides copyable fields for manual transfer between accounts
+
+### Cross-Account Transfer (Meta Platforms)
+- **Platform Comparison Component**: Shows feature differences between Instagram, Messenger, and WhatsApp
+- **Meta AI Studio Format**: Special export format optimized for copying character data field-by-field
+- **Mobile-Friendly Workflow**: Solves the limitation where mobile users cannot access character source code
+- **Use Cases**: 
+  - Transfer characters between different Meta accounts (e.g., Instagram account to Messenger account)
+  - Access platform-specific features (Instagram's Story sharing, Messenger's desktop access, etc.)
+  - Move characters when you can't access the desktop/web interface
 
 ## Data Flow
 
